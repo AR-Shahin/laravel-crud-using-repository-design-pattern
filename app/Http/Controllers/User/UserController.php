@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Repo;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Repository\User\UserInterface;
@@ -23,7 +23,6 @@ class UserController extends Controller
     }
 
     public function store(Request $request){
-        // return $request->all();
         $store =   $this->repo->storeUser($request->all());
         if($store){
             return redirect()->route('user.index')->with('message','Data Inserted!');
