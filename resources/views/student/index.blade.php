@@ -25,7 +25,33 @@
                         <td>{{$student->roll}}</td>
                         <td>
                             <a href="{{route('student.view',$student->id)}}" class="btn btn-sm btn-info">Edit</a>
-                            <a href="{{route('student.delete',$student->id)}}" class="btn btn-sm btn-danger">Delete</a>
+                            <a href="{{route('student.delete',$student->id)}}" class="btn btn-sm btn-danger">Trash</a>
+                        </td>
+                    </tr>
+                @empty
+                @endforelse
+                </tbody>
+            </table>
+            <hr>
+            <h1 class="text-center">Trashed Data</h1>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>SL</th>
+                    <th>Name</th>
+                    <th>Roll</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @forelse($trashed as $key => $student)
+                    <tr>
+                        <td>{{++$key}}</td>
+                        <td>{{$student->name}}</td>
+                        <td>{{$student->roll}}</td>
+                        <td>
+                            <a href="{{route('student.restore',$student->id)}}" class="btn btn-sm btn-info">Restore</a>
+                            <a href="{{route('student.permanent.delete',$student->id)}}" class="btn btn-sm btn-danger">Delete</a>
                         </td>
                     </tr>
                 @empty

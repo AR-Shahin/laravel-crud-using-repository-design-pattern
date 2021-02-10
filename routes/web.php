@@ -31,4 +31,6 @@ Route::name('student.')->prefix('student')->namespace('Student')->group(function
     Route::get('view/{id}','StudentController@view')->name('view');
     Route::put('update/{id}','StudentController@storeOrUpdate')->name('update');
     Route::get('delete/{id}','StudentController@delete')->name('delete');
+    Route::get('restore/{id}','StudentController@restoreData')->name('restore');
+    Route::get('pdelete/{id}','StudentController@permanentDelete')->name('permanent.delete');
 });

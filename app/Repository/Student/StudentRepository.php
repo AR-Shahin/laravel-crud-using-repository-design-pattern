@@ -30,4 +30,15 @@ class StudentRepository implements StudentInterface{
     public function delete($id){
         return Student::find($id)->delete();
     }
+    public function getAllTrashedData()
+    {
+        return Student::onlyTrashed()->latest()->get();
+    }
+    public function restoreData($id){
+        return Student::withTrashed()->find($id)->restore();
+    }
+    public function permanentDelete($id)
+    {
+        return Student::withTrashed()->find($id)->forceDelete();
+    }
 }
