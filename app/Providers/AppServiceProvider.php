@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Repository\Category\AnotherCategory;
+use App\Repository\Category\CategoryInterface;
+use App\Repository\Category\CategoryRepository;
 use App\Repository\Student\StudentInterface;
 use App\Repository\Student\StudentRepository;
 use App\Repository\User\UserInterface;
@@ -17,8 +20,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(UserInterface::class,UserRepository::class);
-        $this->app->bind(StudentInterface::class,StudentRepository::class);
+        $this->app->bind(UserInterface::class, UserRepository::class);
+        $this->app->bind(StudentInterface::class, StudentRepository::class);
+        $this->app->bind(CategoryInterface::class, CategoryRepository::class);
+        //$this->app->bind(CategoryInterface::class, AnotherCategory::class);
     }
 
     /**
