@@ -51,7 +51,7 @@ class CategoryController extends Controller
         $data['slug'] = Str::slug($request->name);
         return $this->category->update($data, $category);
     }
-    public function destroy(Category $category)
+    public function destroy($category)
     {
         $this->category->destroy($category);
     }

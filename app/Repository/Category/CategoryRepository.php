@@ -26,8 +26,8 @@ class CategoryRepository implements CategoryInterface
     {
         return $category->update($request);
     }
-    public function destroy(Category $category)
+    public function destroy($category)
     {
-        $category->delete();
+        Category::find($category)->delete();
     }
 }

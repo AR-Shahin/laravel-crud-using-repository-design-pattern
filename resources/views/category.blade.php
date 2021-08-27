@@ -81,7 +81,7 @@
     <script>
         const setSuccessMessage = ()=> Swal.fire('Data Save')
         const base_url = window.location.origin
- function table_data_row(data) {
+        function table_data_row(data) {
             var	rows = '';
             var i = 0;
             $.each( data, function( key, value ) {
